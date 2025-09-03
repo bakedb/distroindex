@@ -2,7 +2,7 @@ body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
   color: white;
-  background: linear-gradient(to bottom, #0077ff, #7f00ff, #ff0040, #ff9900 );
+  background: linear-gradient(to bottom, #0077ff, #7f00ff, #ff0040, #ff9900);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -34,9 +34,16 @@ main {
   max-width: 600px;
 }
 
-button {
+footer {
+  margin-top: auto;
   padding: 1rem;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.distro-button, .dropdown-toggle {
+  padding: 1rem;
+  font-size: 1rem;
   border: none;
   border-radius: 8px;
   background-color: rgba(255, 255, 255, 0.1);
@@ -44,16 +51,57 @@ button {
   cursor: pointer;
   transition: transform 0.2s ease, background-color 0.3s ease;
   backdrop-filter: blur(4px);
+  width: 100%;
+  text-align: left;
 }
 
-button:hover {
+.distro-button:hover, .dropdown-toggle:hover {
   transform: scale(1.05);
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-footer {
-  margin-top: auto;
-  padding: 1rem;
-  font-size: 0.9rem;
-  opacity: 0.8;
+.dropdown {
+  position: relative;
+  width: 100%;
+}
+
+.dropdown-content {
+  display: none;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 6px;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 0.5rem;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.dropdown-content a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.dropdown.open .dropdown-content {
+  display: flex;
+}
+
+.dropdown-content {
+  max-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 6px;
+  margin-top: 0.5rem;
+  padding: 0 0.5rem;
+  transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+}
+
+.dropdown.open .dropdown-content {
+  max-height: 500px; /* Enough to show all items */
+  padding: 0.5rem;
 }
